@@ -9,8 +9,14 @@
 #include <fstream>
 #include <map>
 #include <string>
-#include <sys/resource.h>
-#include <sys/time.h>
+
+#ifndef _WIN32
+  #include <sys/resource.h>
+  #include <sys/time.h>
+#else
+  #include <chrono>
+  struct timeval { long tv_sec; long tv_usec; };
+#endif
 
 namespace SEB_NAMESPACE {
 

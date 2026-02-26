@@ -1,0 +1,10 @@
+[package]
+name = "miniball-rs"
+version = "1.0.3"
+edition = "2024"
+
+[dependencies]
+cxx = { version = "1.0.194", features =  [ "c++17" ] }
+
+[build-dependencies]
+cxx-build = { version = "1.0.194" }

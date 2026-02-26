@@ -1,0 +1,29 @@
+[package]
+name = "miniball"
+version = "1.0.3"
+edition = "2024"
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+strip = true
+
+[lib]
+name = "miniball"
+crate-type = ["cdylib"]
+
+[dependencies]
+numpy = "^0.28"
+bytemuck = "^1.22"
+
+[dependencies.pyo3]
+version = "^0.28"
+default-features = false
+features = ["abi3-py39", "extension-module", "macros"]
+
+[dependencies.miniball-rs]
+path = "../rust/miniball-rs"
+
+[build-dependencies]
+pyo3-build-config = "^0.28"
